@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <TabHost
+        android:id="@+id/tbhConversores"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:background="@color/grayDark"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </HorizontalScrollView>
+
+    <FrameLayout
+        android:id="@android:id/tabcontent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <!-- Tab LONGITUD -->
+        <RelativeLayout
+            android:id="@+id/tabLongitud"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!-- ConstraintLayout para el fondo -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/background"
+                android:layout_width="match_parent"
+                android:layout_height="402dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="273dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".90"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.85">
+
+                <TextView
+                    android:id="@+id/lblLongitudDe"
+                    android:layout_width="45dp"
+                    android:layout_height="23dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="DE:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.117"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.2" />
+
+                <TextView
+                    android:id="@+id/lblLongitudA"
+                    android:layout_width="45dp"
+                    android:layout_height="23dp"
+                    android:layout_below="@+id/lblLongitudDe"
+                    android:layout_alignParentBottom="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="A:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.117"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lblLongitudDe"
+                    app:layout_constraintVertical_bias="0.184" />
+
+                <Spinner
+                    android:id="@+id/spnLongitudDe"
+                    android:layout_width="283dp"
+                    android:layout_height="24dp"
+                    android:layout_below="@+id/lblLongitudDe"
+                    android:entries="@array/spnLongitud"
+                    android:fontFamily="sans-serif-medium"
+                    android:scrollbarSize="14sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.7"
+                    app:layout_constraintStart_toEndOf="@+id/lblLongitudDe"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.201" />
+
+                <Spinner
+                    android:id="@+id/spnLongitudA"
+                    android:layout_width="283dp"
+                    android:layout_height="24dp"
+                    android:layout_below="@+id/lblLongitudA"
+                    android:entries="@array/spnLongitud"
+                    android:fontFamily="sans-serif-medium"
+                    android:scrollbarSize="14sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.7"
+                    app:layout_constraintStart_toEndOf="@+id/lblLongitudA"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.396" />
+
+                <EditText
+                    android:id="@+id/txtLongitudCantidad"
+                    android:layout_width="341dp"
+                    android:layout_height="57dp"
+                    android:layout_below="@+id/spnLongitudA"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="32dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:hint="Cantidad a convertir:"
+                    android:inputType="number"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spnLongitudA"
+                    app:layout_constraintVertical_bias="0.572" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/btnLongitudConvertir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/background"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-190dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="140dp"
+                android:backgroundTint="@color/gray50"
+                android:fontFamily="sans-serif-medium"
+                android:text="CONVERTIR"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+
+        <!-- Tab ALMACENAMIENTO -->
+        <RelativeLayout
+            android:id="@+id/tabAlmacenamiento"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!-- ConstraintLayout para el fondo -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/background1"
+                android:layout_width="match_parent"
+                android:layout_height="402dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="273dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".90"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.85">
+
+                <TextView
+                    android:id="@+id/lblAlmacenamientoDe"
+                    android:layout_width="45dp"
+                    android:layout_height="23dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="DE:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.117"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.2" />
+
+                <TextView
+                    android:id="@+id/lblAlmacenamientoA"
+                    android:layout_width="45dp"
+                    android:layout_height="23dp"
+                    android:layout_below="@+id/lblAlmacenamientoDe"
+                    android:layout_alignParentBottom="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="A:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.117"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lblAlmacenamientoDe"
+                    app:layout_constraintVertical_bias="0.184" />
+
+                <Spinner
+                    android:id="@+id/spnAlmacenamientoDe"
+                    android:layout_width="283dp"
+                    android:layout_height="24dp"
+                    android:layout_below="@+id/lblAlmacenamientoDe"
+                    android:entries="@array/spnAlmacenamiento"
+                    android:fontFamily="sans-serif-medium"
+                    android:scrollbarSize="14sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.7"
+                    app:layout_constraintStart_toEndOf="@+id/lblAlmacenamientoDe"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.201" />
+
+                <Spinner
+                    android:id="@+id/spnAlmacenamientoA"
+                    android:layout_width="283dp"
+                    android:layout_height="24dp"
+                    android:layout_below="@+id/lblAlmacenamientoA"
+                    android:entries="@array/spnAlmacenamiento"
+                    android:fontFamily="sans-serif-medium"
+                    android:scrollbarSize="14sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.7"
+                    app:layout_constraintStart_toEndOf="@+id/lblAlmacenamientoA"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.396" />
+
+                <EditText
+                    android:id="@+id/txtAlmacenamientoCantidad"
+                    android:layout_width="341dp"
+                    android:layout_height="57dp"
+                    android:layout_below="@+id/spnAlmacenamientoA"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="32dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:hint="Cantidad a convertir:"
+                    android:inputType="number"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spnAlmacenamientoA"
+                    app:layout_constraintVertical_bias="0.572" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/btnAlmacenamientoConvertir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/background1"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-190dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="140dp"
+                android:backgroundTint="@color/gray50"
+                android:fontFamily="sans-serif-medium"
+                android:text="CONVERTIR"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+
+        <!-- Tab MONEDAS -->
+        <RelativeLayout
+            android:id="@+id/tabMonedas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!-- ConstraintLayout para el fondo -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/background2"
+                android:layout_width="match_parent"
+                android:layout_height="402dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="273dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".90"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.85">
+
+                <TextView
+                    android:id="@+id/lblMonedasDe"
+                    android:layout_width="45dp"
+                    android:layout_height="23dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="DE:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.117"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.2" />
+
+                <TextView
+                    android:id="@+id/lblMonedasA"
+                    android:layout_width="45dp"
+                    android:layout_height="23dp"
+                    android:layout_below="@+id/lblMonedasDe"
+                    android:layout_alignParentBottom="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="A:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.117"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lblMonedasDe"
+                    app:layout_constraintVertical_bias="0.184" />
+
+                <Spinner
+                    android:id="@+id/spnMonedasDe"
+                    android:layout_width="283dp"
+                    android:layout_height="24dp"
+                    android:layout_below="@+id/lblMonedasDe"
+                    android:entries="@array/spnMonedas"
+                    android:fontFamily="sans-serif-medium"
+                    android:scrollbarSize="14sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.7"
+                    app:layout_constraintStart_toEndOf="@+id/lblMonedasDe"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.201" />
+
+                <Spinner
+                    android:id="@+id/spnMonedasA"
+                    android:layout_width="283dp"
+                    android:layout_height="24dp"
+                    android:layout_below="@+id/lblMonedasA"
+                    android:entries="@array/spnMonedas"
+                    android:fontFamily="sans-serif-medium"
+                    android:scrollbarSize="14sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.7"
+                    app:layout_constraintStart_toEndOf="@+id/lblMonedasA"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.396" />
+
+                <EditText
+                    android:id="@+id/txtMonedasCantidad"
+                    android:layout_width="341dp"
+                    android:layout_height="57dp"
+                    android:layout_below="@+id/spnMonedasA"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="32dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:hint="Cantidad a convertir:"
+                    android:inputType="number"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spnMonedasA"
+                    app:layout_constraintVertical_bias="0.572" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/btnMonedasConvertir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/background2"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-190dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="140dp"
+                android:backgroundTint="@color/gray50"
+                android:fontFamily="sans-serif-medium"
+                android:text="CONVERTIR"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+
+        <!-- Tab MASA -->
+        <RelativeLayout
+            android:id="@+id/tabMasa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!-- ConstraintLayout para el fondo -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/background3"
+                android:layout_width="match_parent"
+                android:layout_height="402dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="273dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".90"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.85">
+
+                <TextView
+                    android:id="@+id/lblMasaDe"
+                    android:layout_width="45dp"
+                    android:layout_height="23dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="DE:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.117"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.2" />
+
+                <TextView
+                    android:id="@+id/lblMasaA"
+                    android:layout_width="45dp"
+                    android:layout_height="23dp"
+                    android:layout_below="@+id/lblMasaDe"
+                    android:layout_alignParentBottom="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="A:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.117"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lblMasaDe"
+                    app:layout_constraintVertical_bias="0.184" />
+
+                <Spinner
+                    android:id="@+id/spnMasaDe"
+                    android:layout_width="283dp"
+                    android:layout_height="24dp"
+                    android:layout_below="@+id/lblMasaDe"
+                    android:entries="@array/spnMasa"
+                    android:fontFamily="sans-serif-medium"
+                    android:scrollbarSize="14sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.7"
+                    app:layout_constraintStart_toEndOf="@+id/lblMasaDe"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.201" />
+
+                <Spinner
+                    android:id="@+id/spnMasaA"
+                    android:layout_width="283dp"
+                    android:layout_height="24dp"
+                    android:layout_below="@+id/lblMasaA"
+                    android:entries="@array/spnMasa"
+                    android:fontFamily="sans-serif-medium"
+                    android:scrollbarSize="14sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.7"
+                    app:layout_constraintStart_toEndOf="@+id/lblMasaA"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.396" />
+
+                <EditText
+                    android:id="@+id/txtMasaCantidad"
+                    android:layout_width="341dp"
+                    android:layout_height="57dp"
+                    android:layout_below="@+id/spnMasaA"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="32dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:hint="Cantidad a convertir:"
+                    android:inputType="number"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spnMasaA"
+                    app:layout_constraintVertical_bias="0.572" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/btnMasaConvertir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/background3"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-190dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="140dp"
+                android:backgroundTint="@color/gray50"
+                android:fontFamily="sans-serif-medium"
+                android:text="CONVERTIR"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+
+        <!-- Tab VOLUMEN -->
+        <RelativeLayout
+            android:id="@+id/tabVolumen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!-- ConstraintLayout para el fondo -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/background4"
+                android:layout_width="match_parent"
+                android:layout_height="402dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="273dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".90"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.85">
+
+                <TextView
+                    android:id="@+id/lblVolumenDe"
+                    android:layout_width="45dp"
+                    android:layout_height="23dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="DE:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.117"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.2" />
+
+                <TextView
+                    android:id="@+id/lblVolumenA"
+                    android:layout_width="45dp"
+                    android:layout_height="23dp"
+                    android:layout_below="@+id/lblVolumenDe"
+                    android:layout_alignParentBottom="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="A:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.117"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lblVolumenDe"
+                    app:layout_constraintVertical_bias="0.184" />
+
+                <Spinner
+                    android:id="@+id/spnVolumenDe"
+                    android:layout_width="283dp"
+                    android:layout_height="24dp"
+                    android:layout_below="@+id/lblVolumenDe"
+                    android:entries="@array/spnVolumen"
+                    android:fontFamily="sans-serif-medium"
+                    android:scrollbarSize="14sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.7"
+                    app:layout_constraintStart_toEndOf="@+id/lblVolumenDe"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.201" />
+
+                <Spinner
+                    android:id="@+id/spnVolumenA"
+                    android:layout_width="283dp"
+                    android:layout_height="24dp"
+                    android:layout_below="@+id/lblVolumenA"
+                    android:entries="@array/spnVolumen"
+                    android:fontFamily="sans-serif-medium"
+                    android:scrollbarSize="14sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.7"
+                    app:layout_constraintStart_toEndOf="@+id/lblVolumenA"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.396" />
+
+                <EditText
+                    android:id="@+id/txtVolumenCantidad"
+                    android:layout_width="341dp"
+                    android:layout_height="57dp"
+                    android:layout_below="@+id/spnVolumenA"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="32dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:hint="Cantidad a convertir:"
+                    android:inputType="number"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spnVolumenA"
+                    app:layout_constraintVertical_bias="0.572" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/btnVolumenConvertir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/background4"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-190dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="140dp"
+                android:backgroundTint="@color/gray50"
+                android:fontFamily="sans-serif-medium"
+                android:text="CONVERTIR"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+
+        <!-- Tab TIEMPO -->
+        <RelativeLayout
+            android:id="@+id/tabTiempo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!-- ConstraintLayout para el fondo -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/background5"
+                android:layout_width="match_parent"
+                android:layout_height="402dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="273dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".90"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.85">
+
+                <TextView
+                    android:id="@+id/lblTiempoDe"
+                    android:layout_width="45dp"
+                    android:layout_height="23dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="DE:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.117"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.2" />
+
+                <TextView
+                    android:id="@+id/lblTiempoA"
+                    android:layout_width="45dp"
+                    android:layout_height="23dp"
+                    android:layout_below="@+id/lblTiempoDe"
+                    android:layout_alignParentBottom="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="A:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.117"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lblTiempoDe"
+                    app:layout_constraintVertical_bias="0.184" />
+
+                <Spinner
+                    android:id="@+id/spnTiempoDe"
+                    android:layout_width="283dp"
+                    android:layout_height="24dp"
+                    android:layout_below="@+id/lblTiempoDe"
+                    android:entries="@array/spnTiempo"
+                    android:fontFamily="sans-serif-medium"
+                    android:scrollbarSize="14sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.7"
+                    app:layout_constraintStart_toEndOf="@+id/lblTiempoDe"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.201" />
+
+                <Spinner
+                    android:id="@+id/spnTiempoA"
+                    android:layout_width="283dp"
+                    android:layout_height="24dp"
+                    android:layout_below="@+id/lblTiempoA"
+                    android:entries="@array/spnTiempo"
+                    android:fontFamily="sans-serif-medium"
+                    android:scrollbarSize="14sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.7"
+                    app:layout_constraintStart_toEndOf="@+id/lblTiempoA"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.396" />
+
+                <EditText
+                    android:id="@+id/txtTiempoCantidad"
+                    android:layout_width="341dp"
+                    android:layout_height="57dp"
+                    android:layout_below="@+id/spnTiempoA"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="32dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:hint="Cantidad a convertir:"
+                    android:inputType="number"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spnTiempoA"
+                    app:layout_constraintVertical_bias="0.572" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/btnTiempoConvertir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/background5"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-190dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="140dp"
+                android:backgroundTint="@color/gray50"
+                android:fontFamily="sans-serif-medium"
+                android:text="CONVERTIR"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+
+        <!-- Tab TRANSFERENCIA -->
+        <RelativeLayout
+            android:id="@+id/tabTransferenciaDatos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!-- ConstraintLayout para el fondo -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/background6"
+                android:layout_width="match_parent"
+                android:layout_height="402dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="273dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".90"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.85">
+
+                <TextView
+                    android:id="@+id/lblTransferenciaDatosDe"
+                    android:layout_width="45dp"
+                    android:layout_height="23dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="DE:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.117"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.2" />
+
+                <TextView
+                    android:id="@+id/lblTransferenciaDatosA"
+                    android:layout_width="45dp"
+                    android:layout_height="23dp"
+                    android:layout_below="@+id/lblTransferenciaDatosDe"
+                    android:layout_alignParentBottom="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="A:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.117"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lblTransferenciaDatosDe"
+                    app:layout_constraintVertical_bias="0.184" />
+
+                <Spinner
+                    android:id="@+id/spnTransferenciaDatosDe"
+                    android:layout_width="283dp"
+                    android:layout_height="24dp"
+                    android:layout_below="@+id/lblTransferenciaDatosDe"
+                    android:entries="@array/spnTransferenciaDatos"
+                    android:fontFamily="sans-serif-medium"
+                    android:scrollbarSize="14sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.7"
+                    app:layout_constraintStart_toEndOf="@+id/lblTransferenciaDatosDe"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.201" />
+
+                <Spinner
+                    android:id="@+id/spnTransferenciaDatosA"
+                    android:layout_width="283dp"
+                    android:layout_height="24dp"
+                    android:layout_below="@+id/lblTransferenciaDatosA"
+                    android:entries="@array/spnTransferenciaDatos"
+                    android:fontFamily="sans-serif-medium"
+                    android:scrollbarSize="14sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.7"
+                    app:layout_constraintStart_toEndOf="@+id/lblTransferenciaDatosA"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.396" />
+
+                <EditText
+                    android:id="@+id/txtTransferenciaDatosCantidad"
+                    android:layout_width="341dp"
+                    android:layout_height="57dp"
+                    android:layout_below="@+id/spnTransferenciaDatosA"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="32dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:hint="Cantidad a convertir:"
+                    android:inputType="number"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spnTransferenciaDatosA"
+                    app:layout_constraintVertical_bias="0.572" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/btnTransferenciaDatosConvertir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/background6"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-190dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="140dp"
+                android:backgroundTint="@color/gray50"
+                android:fontFamily="sans-serif-medium"
+                android:text="CONVERTIR"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+
+
+    </FrameLayout>
+    </LinearLayout>
+    </TabHost>
+
+</RelativeLayout>
